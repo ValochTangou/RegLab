@@ -1,104 +1,92 @@
-a<!DOCTYPE html>
-<html lang="en"
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scal=1.0">
-   <title>RegLab - My network Portfolio</title>
-
-   <link rel="stylesheet" href="style.css" alt="image1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegLab - My Network Portfolio</title>
+    
+    <!-- Link css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- images-->
-     <div class="backgoung-slider">
+    <!-- Images -->
+    <div class="background-slider">
+        
         <img src="../Images/img1.jpg">
         <img src="../Images/img2.jpg">
         <img src="../Images/img3.jpg">
         <img src="../Images/img4.jpg">
         <img src="../Images/img5.jpg">
-        
-     </div>
-    <!--Header section: Navigation bar-->
-    <header>
-        <div class="header-container">
-        <div class="logo">
-            <span class="logo-bold">RegLab</span> My network Portfolio
         </div>
 
-        <nav>
-            <!--Single menu-->
-            <a href="#"class="nav-link active">HOME</a>
-        </nav>
-     </div>
-        </header>
-    
-        <main>
-            < class="content-card">
-                <h1>Welcome to RegLab</h1>
-                <p class="subtitle">Explore my work, architecture, configuration and open source projects stored on Github.</p>
 
-                <!-- Tree clickable cards section-->
-                <div class="cards-grid">
-                    <!-- card 1 : Network topologies-->
-                     <a href="#topologies"class="card" onclick="navigateTo('Topologies')"><div class="icon-container">
-                        <i class="fa-solid fa-network-wired"></i>
-                     </div>
-                     <h2>Network Topologies</h2>
-                     <p>Discover detailed topologies</p>
-                     <span class="card-link">View topologies</span>
-                     </a>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-bold">RegLab</span> - My Network Portfolio
+            </div>
+            <nav>
+                <a href="#" class="nav-link active">HOME</a>
+            </nav>
+        </div>
+    </header>
 
-                     <!-- card2: architectures-->
-                      <a href="#architectures" class="card" onclick="navigateTo('Architectures')">
-                        <div class="icon-container">
-                            <i class="fa-solid fa-cloud"></i>
-                        </div>
-                        <h2>Architectures</h2>
-                        <p>analyses, HLD/LLD..., schemes and infrastructure designs</p>
-                        <span class="card-link">View Architectures</span>
-                      </a>
+    <!-- Main Content Section -->
+    <main>
+        <div class="content-card">
+            <h1>WELCOME TO RegLab</h1>
+            <p class="subtitle">Explore my work, architectures, configurations and open source projects stored on GitHub.</p>
 
-                      
-                      <!-- card3: configuration & scripts -->
-                       <a href="#configs" class="card" onclick="navigateTo('Configurations & Scripts')">
-                        <div class="icon-container">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-                        <h2>Configurations & Scripts</h2>
-                        <p>CLI configurations (BGP, OSPF, VLANS ...), Python scripts </p>
-                        <span class="card-link">View Architectures</span>
-                      </a>
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <a href="#topologies" class="card" onclick="navigateTo('Topologies')">
+                    <div class="icon-container"><i class="fa-solid fa-network-wired"></i></div>
+                    <h2>Network Topologies</h2>
+                    <p>Discover detailed topologies.</p>
+                    <span class="card-link">View Topologies</span>
+                </a>
+                <!-- Card 2 -->
+                <a href="#architectures" class="card" onclick="navigateTo('Architectures')">
+                    <div class="icon-container"><i class="fa-solid fa-cloud"></i></div>
+                    <h2>Architectures</h2>
+                    <p>Architectural analyses, HLD/LLD ... schemas and infrastructure designs.</p>
+                    <span class="card-link">View Architectures</span>
+                </a>
+                <!-- Card 3 -->
+                <a href="#configs" class="card" onclick="navigateTo('Configurations & Scripts')">
+                    <div class="icon-container"><i class="fa-solid fa-code"></i></div>
+                    <h2>Configurations & Scripts</h2>
+                    <p>CLI configurations (BGP, OSPF, VLANs...), scripts (Automation, Ansible).</p>
+                    <span class="card-link">View Configs</span>
+                </a>
+            </div>
 
+            <div class="github-section">
+                <h3>LATEST GITHUB PROJECTS</h3>
+                <div class="github-list">
+                    <div class="github-item">
+                        <i class="fa-brands fa-github"></i>
+                        <span>1. 'Network-Automation-Scripts' - Python Scripts (BGP, SSH) <a href="#">[GitHub Link]</a></span>
+                    </div>
+                    <div class="github-item">
+                        <i class="fa-brands fa-github"></i>
+                        <span>2. 'DataCenter-Fabric-Leaf-Spine' - Topology & Configs <a href="#">https://github.com/ValochTangou/RegLab.git</a></span>
+                    </div>
                 </div>
-
-                <!-- Github project section-->
-                 <div class="github-section">
-                    <div class="github-item">
-                        <i class="fa-brands fa-github"></i>
-                        <span>1. 'Network automation-scripts' - Pyton scipts (BGP, SSH...)
-                            <a href="#"https://github.com/ValochTangou/RegLab.git</a>
-                        </span>
-                    </div>
-                    <div class="github-item">
-                        <i class="fa-brands fa-github"></i>
-                        <span>2. 'DataCente-Fabric-Leaf-Spine' Topology & Configs <a href="#">https://github.com/ValochTangou/RegLab.git</a></span>
-
-                    </div>
-                    </div>
-                 </div>
             </div>
-        </main>
+        </div>
+    </main>
 
-        <!-- Footer section-->
-         <footer>
-            <div class="footer-content">
-                <p>&copy; 2026 Regis Tangou - Network Portfolio. Links: <a href="#>Linkdin</a>
-                    | <a href=">Contact</a>
-                </p>
-            </div>
-         </footer>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Regis Tangou - Network Portfolio. Links: <a href="#">LinkedIn</a> | <a href="#">GitHub</a> | <a href="#">Contact</a></p>
+        </div>
+    </footer>
 
-         <!-- Link to external Javascript-->
-          <script src="script.js"></script>
+    <!-- On remonte d'un dossier (../) pour trouver le script -->
+    <script src="../script.js"></script>
 </body>
-</htm>
+</html>
