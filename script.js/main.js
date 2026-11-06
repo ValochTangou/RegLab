@@ -1,11 +1,3 @@
-window.navigateTo = function (section) {
-
-    console.log("Opening: " + section);
-
-    alert("Opening " + section);
-
-};
-
 /*
 =========================================
 Projects Database
@@ -17,21 +9,27 @@ const projects = [
     {
         title: "Network Topologies",
         description: "Enterprise, Campus and DataCenter topologies.",
-        github: "https://github.com/ValochTangou/RegLab",
+        liveProject: "../projects/topology1/index.html",
+        githubProject:
+        "https://github.com/ValochTangou/RegLab/tree/main/projects/topology1",
         icon: "fa-network-wired"
     },
 
     {
         title: "Architectures",
         description: "HLD, LLD and Infrastructure Design.",
-        github: "https://github.com/ValochTangou/RegLab",
+        liveProject: "../projects/architecture1/index.html",
+        githubProject:
+        "https://github.com/ValochTangou/RegLab/tree/main/projects/architecture1",
         icon: "fa-cloud"
     },
 
     {
         title: "Configurations & Scripts",
         description: "BGP, OSPF, VLANs, Automation and Ansible.",
-        github: "https://github.com/ValochTangou/RegLab",
+        liveProject: "../projects/configs1/index.html",
+        githubProject:
+        "https://github.com/ValochTangou/RegLab/tree/main/projects/configs1",
         icon: "fa-code"
     }
 
@@ -39,72 +37,128 @@ const projects = [
 
 /*
 =========================================
+Security Helpers
+=========================================
+*/
+
+function isSafeUrl(url)
+{
+    try
+    {
+        const parsed = new URL(url, window.location.origin);
+
+        return (
+            parsed.protocol === "https:" ||
+            parsed.protocol === "http:"
+        );
+    }
+    catch
+    {
+        return false;
+    }
+}
+
+/*
+=========================================
 Page Loaded
 =========================================
 */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () =>
+{
 
     console.log("RegLab loaded successfully");
 
-    /*
-    -------------------------------------
-    HOME button smooth scroll
-    -------------------------------------
-    */
-
     const homeLink = document.querySelector(".nav-link");
 
-    if (homeLink) {
-
-        homeLink.addEventListener("click", function (event) {
-
+    if (homeLink)
+    {
+        homeLink.addEventListener("click", (event) =>
+        {
             event.preventDefault();
 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
-
         });
-
     }
-
-    /*
-    -------------------------------------
-    Dynamic project cards
-    -------------------------------------
-    */
 
     const cardsContainer = document.querySelector(".cards-grid");
 
-    if (!cardsContainer) return;
+    if (!cardsContainer)
+    {
+        return;
+    }
 
-    cardsContainer.innerHTML = "";
+    cardsContainer.textContent = "";
 
-    projects.forEach(project => {
+    projects.forEach(project =>
+    {
 
-        const card = document.createElement("a");
-
-        card.href = project.github;
-
-        card.target = "_blank";
-
+        const card = document.createElement("div");
         card.className = "card";
 
-        card.innerHTML = `
-            <div class="icon-container">
-                <i class="fa-solid ${project.icon}"></i>
-            </div>
+        const iconContainer = document.createElement("div");
+        iconContainer.className = "icon-container";
 
-            <h2>${project.title}</h2>
+        const icon = document.createElement("i");
+        icon.className = `fa-solid ${project.icon}`;
 
-            <p>${project.description}</p>
+        iconContainer.appendChild(icon);
 
-            <span class="card-link">
-                View Project on GitHub
-            </span>
-        `;
+        const title = document.createElement("h2");
+        title.textContent = project.title;
+
+        const description = document.createElement("p");
+        description.textContent = project.description;
+
+        const buttons = document.createElement("div");
+        buttons.className = "card-buttons";
+
+        const projectBtn = document.createElement("a");
+
+        projectBtn.className = "project-btn";
+        projectBtn.textContent = "Open Project";
+
+        if (isSafeUrl(project.liveProject))
+        {
+            projectBtn.href = project.liveProject;
+        }
+        else
+        {
+            projectBtn.href = "#";
+        }
+
+        const githubBtn = document.createElement("a");
+
+        githubBtn.className = "github-btn";
+        githubBtn.textContent = "GitHub";
+
+        if (isSafeUrl(project.githubProject))
+        {
+            githubBtn.href = project.githubProject;
+        }
+        else
+        {
+            githubBtn.href = "#";
+        }
+
+        githubBtn.target = "_blank";
+
+        githubBtn.rel =
+            "noopener noreferrer";
+
+        githubBtn.referrerPolicy =
+            "strict-origin-when-cross-origin";
+
+        buttons.appendChild(projectBtn);
+        buttons.appendChild(githubBtn);
+
+        card.appendChild(iconContainer);
+        card.appendChild(title);
+        card.appendChild(description);
+        card.appendChild(buttons);
 
         cardsContainer.appendChild(card);
 
