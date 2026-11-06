@@ -393,4 +393,40 @@ footer a:hover {
         flex-direction: column;
         gap: 10px;
     }
-}      
+} 
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.project-btn,
+.github-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.project-btn {
+    background: #1a365d;
+    color: white;
+}
+
+.project-btn:hover {
+    background: #2b6cb0;
+}
+
+.github-btn {
+    background: #24292e;
+    color: white;
+}
+
+.github-btn:hover {
+    background: #000;
+}
