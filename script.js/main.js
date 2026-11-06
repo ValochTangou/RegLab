@@ -5,7 +5,7 @@ window.navigateTo = function (section) {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("main.js chargé avec succès !");
+    console.log("main.js Uploaded successfully !");
 
     const homeLink = document.querySelector(".nav-link");
 
